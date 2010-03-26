@@ -58,11 +58,8 @@ input_array.each_with_index do |e, i|
   array[i/20].push(e.to_i)
 end
 def get_safe_value(array, x, y)
-  if array.length >= x
-    if array[x].length >= y
-      puts array[x].length
-      puts array[x].inspect
-      puts "returning #{array[x][y]} for x=#{x} and y=#{y}"
+  if array.length > x
+    if array[x].length > y
       return array[x][y]
     end
   end
@@ -79,12 +76,9 @@ max_index = 19
     vertical_product = get_safe_value(array, x, y) * get_safe_value(array, x, y+1) * get_safe_value(array, x, y+2) * get_safe_value(array, x, y+3)
     diagonal_product = get_safe_value(array, x, y) * get_safe_value(array, x+1, y+1) * get_safe_value(array, x+2, y+2) * get_safe_value(array, x+3, y+3)
 
-    puts "horizontal = #{horizontal_product}"
-    puts "vertical = #{vertical_product}"
-    puts "diagonal = #{diagonal_product}"
-    max_product = [max_product, horizontal_product, vertical_product, diagonal_product].max
+    diagonal_product_2 = get_safe_value(array, x, y) * get_safe_value(array, x-1, y+1) * get_safe_value(array, x-2, y+2) * get_safe_value(array, x-3, y+3)
+    max_product = [max_product, horizontal_product, vertical_product, diagonal_product, diagonal_product_2].max
 
-puts max_product
 
   end
 end
