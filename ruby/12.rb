@@ -47,13 +47,10 @@ def get_number_of_factors(number)
 	   return @factors[number].copy
 	end
 	while(divisor <= number)
-		#puts "number = #{number}"
-		#puts "divisor = #{divisor}"
 		if(number%divisor == 0)
 			factors = get_number_of_factors(number/divisor)
 			factors.add_factor(divisor)
 			@factors[number] = factors
-		#	puts "returning #{factors.inspect}"
 			return factors.copy
 		else
 			divisor = divisor + 1
@@ -62,7 +59,6 @@ def get_number_of_factors(number)
 	factors = Factors.new
 	factors.add_factor(number)
 	@factors[number] = factors
-#	puts "returning #{factors.inspect}"
 	return factors.copy
 end
 end

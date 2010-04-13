@@ -107,5 +107,4 @@ array << '53503534226472524250874054075591789781264330331690'
 
 
 sum = array.inject(0) {|s, i| s + i.to_i}.to_s
-sum = sum.to_s
 puts sum[0...10]
